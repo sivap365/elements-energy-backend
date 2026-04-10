@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15
+    container_name: elements_energy_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: elements
+      POSTGRES_PASSWORD: elements_pass
+      POSTGRES_DB: elements_energy
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
